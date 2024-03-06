@@ -1,0 +1,15 @@
+{
+  "desktop": {
+    "prefix": ["desktop"],
+    "description": "Boiler plate desktop entry",
+    "body": [
+      "[Desktop Entry]",
+      "Name=$1",
+      "GenericName=$2",
+      "Keywords=$3",
+      "Exec=$4",
+      "Type=Application",
+      "Icon=$5"
+    ]
+  }
+}
