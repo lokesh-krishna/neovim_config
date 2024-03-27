@@ -16,6 +16,15 @@ return {
           end
           return 'make install_jsregexp'
         end)(),
+        dependencies = {
+          'rafamadriz/friendly-snippets',
+          config = function()
+            -- for friendly snippets
+            require('luasnip.loaders.from_vscode').lazy_load()
+            -- for custom snippets
+            require('luasnip.loaders.from_vscode').lazy_load { paths = { '~/.config/nvim/snips/snippets/' } }
+          end,
+        },
       },
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-nvim-lsp',
@@ -25,17 +34,14 @@ return {
       'hrsh7th/cmp-emoji',
       'f3fora/cmp-spell',
       'hrsh7th/cmp-cmdline',
-      'jmbuhr/cmp-pandoc-references',
-      'R-nvim/cmp-r',
       'kdheepak/cmp-latex-symbols',
-      'rafamadriz/friendly-snippets',
+      'jmbuhr/cmp-pandoc-references',
     },
     config = function()
       -- See `:help cmp`
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
       luasnip.config.setup {}
-
       cmp.setup {
         formatting = {
           format = require('lspkind').cmp_format {
@@ -101,7 +107,6 @@ return {
         },
         sources = {
           { name = 'nvim_lsp' },
-          { name = 'otter' },
           { name = 'luasnip' },
           { name = 'path' },
           { name = 'cmp_r' },
@@ -114,10 +119,7 @@ return {
         },
       }
 
-      -- for friendly snippets
-      require('luasnip.loaders.from_vscode').lazy_load()
-      -- for custom snippets
-      require('luasnip.loaders.from_vscode').lazy_load { paths = { vim.fn.stdpath 'config' .. '/snips' } }
+      -- Make markdown snippets available in quarto
       luasnip.filetype_extend('quarto', { 'markdown' })
 
       cmp.setup.cmdline({ '/', '?' }, {

@@ -1,9 +1,28 @@
 return {
   'R-nvim/R.nvim',
+  dependencies = {
+    {
+      'R-nvim/cmp-r',
+      config = function()
+        require('cmp_r').setup {
+          fun_data_1 = {
+            'select',
+            'rename',
+            'mutate',
+            'filter',
+            'relocate',
+            'summarise',
+          },
+        }
+      end,
+    },
+  },
+  lazy = false,
   config = function()
-    require('cmp_r').setup {}
     local opts = {
       auto_start = 'always',
+      auto_quit = true,
+      active_window_warn = false,
     }
     require('r').setup(opts)
     vim.g.rout_follow_colorscheme = true
@@ -16,10 +35,9 @@ return {
       vim.cmd(cmd)
     end
 
-    vim.keymap.set('n', '<leader>dt', show_table, { desc = '[D]ata [T]able' })
+    vim.keymap.set('n', '<leader>rt', show_table, { desc = '[R] [T]able' })
 
     -- Keybinding to insert pipe
     vim.keymap.set('i', '<m-m>', ' |>')
   end,
-  lazy = false,
 }

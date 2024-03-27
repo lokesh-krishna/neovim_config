@@ -1,0 +1,13 @@
+{
+  "libraries": {
+    "prefix": [
+      "lib"
+    ],
+    "body": [
+      "# Libraries",
+      "library(tidyverse)",
+      "library(here)",
+      "library(janitor)"
+    ]
+  }
+}
