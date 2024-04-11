@@ -21,8 +21,8 @@ return {
           config = function()
             -- for friendly snippets
             require('luasnip.loaders.from_vscode').lazy_load()
-            -- for custom snippets
-            require('luasnip.loaders.from_vscode').lazy_load { paths = { '~/.config/nvim/snips/snippets/' } }
+            -- -- for custom snippets
+            require('luasnip.loaders.from_vscode').lazy_load { paths = { './snips' } }
           end,
         },
       },

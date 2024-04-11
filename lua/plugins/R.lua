@@ -20,7 +20,7 @@ return {
   lazy = false,
   config = function()
     local opts = {
-      auto_start = 'always',
+      -- auto_start = 'always',
       auto_quit = true,
       active_window_warn = false,
     }

@@ -6,15 +6,6 @@
     "contributes": {
         "snippets": [
             {
-                "language": [
-                    "markdown",
-                    "tex",
-                    "html",
-                    "quarto"
-                ],
-                "path": "./snippets/global.json"
-            },
-            {
                 "language": "quarto",
                 "path": "./snippets/quarto.json"
             },
@@ -24,18 +15,30 @@
             },
             {
                 "language": [
-                    "json"
+                    "json",
+                    "jsonc"
                 ],
                 "path": "./snippets/json.json"
             },
             {
-                "language": ["css", "scss"],
+                "language": [
+                    "css",
+                    "scss"
+                ],
                 "path": "./snippets/css.json"
             },
             {
                 "language": "tex",
                 "path": "./snippets/tex.json"
+            },
+            {
+                "language": "r",
+                "path": "./snippets/R.json"
+            },
+            {
+                "language": "desktop",
+                "path": "./snippets/desktop.json"
             }
-    ]
+        ]
     }
 }

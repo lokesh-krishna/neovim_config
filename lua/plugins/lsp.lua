@@ -121,7 +121,13 @@ return {
         -- Json language server
         jsonls = {},
         -- Grammar language server
-        ltex = {},
+        ltex = {
+          settings = {
+            ltex = {
+              language = 'en-GB', -- Check against British English
+            },
+          },
+        },
         -- R language server
         r_language_server = {},
         -- Typst language server
