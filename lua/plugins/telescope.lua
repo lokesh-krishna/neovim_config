@@ -69,6 +69,9 @@ return {
         },
         -- pickers = {}
         extensions = {
+          frecency = {
+            db_safe_mode = false,
+          },
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
           },

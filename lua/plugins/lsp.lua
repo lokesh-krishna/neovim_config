@@ -129,7 +129,9 @@ return {
           },
         },
         -- R language server
-        r_language_server = {},
+        r_language_server = {
+          filetypes = { 'r', 'rmd', 'quarto' },
+        },
         -- Typst language server
         typst_lsp = {},
         -- YAML language server

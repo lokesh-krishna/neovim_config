@@ -1,5 +1,6 @@
 return {
   'R-nvim/R.nvim',
+  lazy = false,
   dependencies = {
     {
       'R-nvim/cmp-r',
@@ -17,12 +18,10 @@ return {
       end,
     },
   },
-  lazy = false,
   config = function()
     local opts = {
-      -- auto_start = 'always',
+      auto_start = 'always',
       auto_quit = true,
-      active_window_warn = false,
     }
     require('r').setup(opts)
     vim.g.rout_follow_colorscheme = true
