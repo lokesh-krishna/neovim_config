@@ -49,7 +49,4 @@ return {
       current_only = true,
     },
   },
-
-  -- Diagnostics center
-  'folke/trouble.nvim',
 }

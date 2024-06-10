@@ -6,9 +6,6 @@ vim.opt.hlsearch = true
 set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- Diagnostic keymaps
-set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
-set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
-set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 set('n', '<leader>eq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
@@ -31,6 +28,3 @@ set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 -- Control split sizes
 set('n', '<M-,>', '<c-w>5<', { desc = 'Shrink split horizontally' })
 set('n', '<M-.>', '<c-w>5>', { desc = 'Expand split horizontally' })
-
--- Toggle Trouble (Diagnostic Center)
-set('n', '<leader>t', '<cmd>:TroubleToggle<cr>', { desc = '[T]oggle Trouble diagnostics center' })
