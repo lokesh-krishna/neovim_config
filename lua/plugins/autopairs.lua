@@ -12,7 +12,7 @@ return {
       local Rule = require 'nvim-autopairs.rule'
       local npairs = require 'nvim-autopairs'
       -- $$ for quarto
-      npairs.add_rule(Rule('$$', '$$', 'quarto'))
+      npairs.add_rule(Rule('$', '$', 'quarto'))
       -- <>
       npairs.add_rule(Rule('<', '>', '-r'))
     end,
