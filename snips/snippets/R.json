@@ -1,13 +1,23 @@
 {
   "libraries": {
     "prefix": [
-      "lib"
+      "libraries"
     ],
     "body": [
       "# Libraries",
       "library(tidyverse)",
       "library(here)",
       "library(janitor)"
+    ]
+  },
+  "function": {
+    "prefix": [
+      "function"
+    ],
+    "body": [
+      "${1:name} <- function(${2:variable}) {",
+      "  ${0}",
+      "}"
     ]
   }
 }
