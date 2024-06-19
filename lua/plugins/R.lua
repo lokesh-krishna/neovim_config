@@ -22,9 +22,9 @@ return {
     local opts = {
       auto_start = 'always',
       auto_quit = true,
+      Rout_more_colors = true,
     }
     require('r').setup(opts)
-    vim.g.rout_follow_colorscheme = true
 
     -- Keybinding to view R tables using DT
     local function show_table()
