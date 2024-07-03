@@ -1,30 +1,33 @@
 return {
   {
     'folke/zen-mode.nvim',
-    config = function()
-      require('zen-mode').setup {
-        window = {
-          backdrop = 1,
-          height = 0.95,
-          options = {
-            relativenumber = false,
-            number = false,
-          },
-        },
-        plugins = {
-          options = {
-            ruler = true,
-          },
+    opts = {
+      backdrop = 1,
+      height = 0.95,
+      plugins = {
+        options = {
+          enabled = true,
+          ruler = true,
         },
         twilight = { enabled = false },
-      }
-      vim.keymap.set('n', '<leader>wz', '<cmd>:ZenMode<CR>', { desc = '[W]riting in [Z]en Mode' })
-    end,
+      },
+    },
+    keys = {
+      {
+        '<leader>wz',
+        '<cmd>:ZenMode<CR>',
+        desc = '[Writing] in [Zen] Mode',
+      },
+    },
   },
   {
     'folke/twilight.nvim',
-    config = function()
-      vim.keymap.set('n', '<leader>wt', '<cmd>:Twilight<CR>', { desc = '[W]riting in [T]wilight' })
-    end,
+    keys = {
+      {
+        '<leader>wt',
+        '<cmd>:Twilight<CR>',
+        desc = '[W]riting in [T]wilight',
+      },
+    },
   },
 }

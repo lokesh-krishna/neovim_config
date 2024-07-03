@@ -55,8 +55,10 @@ return {
           sorting_strategy = 'ascending',
           layout_strategy = 'flex',
           layout_config = {
-            prompt_position = 'top',
-            flip_columns = 160,
+            flex = {
+              prompt_position = 'top',
+              flip_columns = 160,
+            },
             horizontal = {
               preview_width = 80,
             },

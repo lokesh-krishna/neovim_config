@@ -124,6 +124,10 @@ return {
             },
           },
         },
+        -- Perl language server
+        perlnavigator = {},
+        -- Python language server
+        pyright = {},
         -- R language server
         r_language_server = {
           filetypes = { 'r', 'rmd', 'quarto' },
