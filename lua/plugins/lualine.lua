@@ -33,6 +33,14 @@ return {
       },
     }
 
+    local function wordcount()
+      return tostring(vim.fn.wordcount().words) .. ' words'
+    end
+
+    local function is_writing()
+      return vim.bo.filetype == 'markdown' or vim.bo.filetype == 'quarto'
+    end
+
     require('lualine').setup {
       options = {
         icons_enabled = true,
@@ -47,7 +55,7 @@ return {
         },
         lualine_b = { 'filename', 'branch' },
         lualine_c = {},
-        lualine_x = { '%S' },
+        lualine_x = { { wordcount, cond = is_writing } },
         lualine_y = { 'filetype', 'progress' },
         lualine_z = {
           { 'location', separator = { right = '' }, left_padding = 2 },

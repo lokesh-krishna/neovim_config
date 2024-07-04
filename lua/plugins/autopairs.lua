@@ -11,10 +11,11 @@ return {
       -- Rules
       local Rule = require 'nvim-autopairs.rule'
       local npairs = require 'nvim-autopairs'
+      local cond = require 'nvim-autopairs.conds'
       -- $$ for quarto
-      npairs.add_rule(Rule('$', '$', 'quarto'))
-      -- <>
-      npairs.add_rule(Rule('<', '>', '-r'))
+      npairs.add_rule(Rule('$', '$', 'quarto'):with_move(cond.done()))
+      -- <> for everything but R
+      npairs.add_rule(Rule('<', '>', '-r'):with_move(cond.done()))
     end,
   },
   -- Next, autotags
