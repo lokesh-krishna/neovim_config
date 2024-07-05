@@ -575,5 +575,20 @@
     "body": "Fig. \\ref{fig-$1}",
     "description": "refer to a label for a wrap figure",
     "prefix": "@wrap"
+  },
+  "native pagebreak": {
+    "body": "{{< pagebreak >}}",
+    "description": "insert a native pagebreak into the document",
+    "prefix": "pagebreak"
+  },
+  "keyboard shortcuts": {
+    "body": "{{ < kbd $1 >}}",
+    "description": "describe keyboard shortcuts in documentation",
+    "prefix": "kbd"
+  },
+  "placeholder text": {
+    "body": "{{< lipsum >}}",
+    "description": "insert standard placeholder text",
+    "prefix": "lipsum"
   }
 }
