@@ -590,5 +590,14 @@
     "body": "{{< lipsum >}}",
     "description": "insert standard placeholder text",
     "prefix": "lipsum"
+  },
+  "raw typst": {
+    "body": [
+      "```{=typst}",
+      "$1",
+      "```"
+    ],
+    "description": "raw typst markup",
+    "prefix": "typst_raw"
   }
 }
