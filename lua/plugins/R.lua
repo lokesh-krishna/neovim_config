@@ -2,21 +2,7 @@ return {
   'R-nvim/R.nvim',
   lazy = false,
   dependencies = {
-    {
-      'R-nvim/cmp-r',
-      config = function()
-        require('cmp_r').setup {
-          fun_data_1 = {
-            'select',
-            'rename',
-            'mutate',
-            'filter',
-            'relocate',
-            'summarise',
-          },
-        }
-      end,
-    },
+    { 'R-nvim/cmp-r' },
   },
   config = function()
     local opts = {

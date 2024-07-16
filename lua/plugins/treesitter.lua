@@ -6,95 +6,66 @@ return {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
-    config = function()
-      -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-
-      ---@diagnostic disable-next-line: missing-fields
-      require('nvim-treesitter.configs').setup {
-        -- Autoinstall languages that are not installed
-        ensure_installed = {
-          'bash',
-          'bibtex',
-          'cmake',
-          'comment',
-          'css',
-          'devicetree',
-          'dart',
-          'dockerfile',
-          'fish',
-          'hjson',
-          'html',
-          'http',
-          'hyprlang',
-          'javascript',
-          'json5',
-          'jsonc',
-          'julia',
-          'latex',
-          'ledger',
-          'lua',
-          'make',
-          'markdown',
-          'markdown_inline',
-          'ninja',
-          'php',
-          'python',
-          'query',
-          'r',
-          'regex',
-          'ron',
-          'rust',
-          'scss',
-          'toml',
-          'vim',
-          'vimdoc',
-          'yaml',
+    opts = {
+      highlight = { enable = true },
+      indent = { enable = true },
+      auto_install = true,
+      ensure_installed = 'all',
+      incremental_selection = {
+        enable = true,
+        keymaps = {
+          init_selection = 'gnn',
+          node_incremental = 'grn',
+          scope_incremental = 'grc',
+          node_decremental = 'grm',
         },
-        highlight = { enable = true },
-        indent = { enable = true },
-        incremental_selection = {
+      },
+      textobjects = {
+        select = {
           enable = true,
+          lookahead = true,
           keymaps = {
-            init_selection = 'gnn',
-            node_incremental = 'grn',
-            scope_incremental = 'grc',
-            node_decremental = 'grm',
+            ['af'] = { query = '@function.outer', desc = 'Select outer part of a function' },
+            ['if'] = { query = '@function.inner', desc = 'Select inner part of a function' },
+            ['ac'] = { query = '@class.outer', desc = 'Select outer part of a class region' },
+            ['ic'] = { query = '@class.inner', desc = 'Select inner part of a class region' },
           },
         },
-        textobjects = {
-          select = {
-            enable = true,
-            lookahead = true,
-            keymaps = {
-              -- You can use the capture groups defined in textobjects.scm
-              ['af'] = '@function.outer',
-              ['if'] = '@function.inner',
-              ['ac'] = '@class.outer',
-              ['ic'] = '@class.inner',
-            },
+        move = {
+          enable = true,
+          set_jumps = true,
+          goto_next_start = {
+            [']m'] = { query = '@function.outer', desc = 'Next function start' },
+            [']]'] = { query = '@class.outer', desc = 'Next class start' },
           },
-          move = {
-            enable = true,
-            set_jumps = true, -- whether to set jumps in the jumplist
-            goto_next_start = {
-              [']m'] = '@function.outer',
-              [']]'] = '@class.inner',
-            },
-            goto_next_end = {
-              [']M'] = '@function.outer',
-              [']['] = '@class.outer',
-            },
-            goto_previous_start = {
-              ['[m'] = '@function.outer',
-              ['[['] = '@class.inner',
-            },
-            goto_previous_end = {
-              ['[M'] = '@function.outer',
-              ['[]'] = '@class.outer',
-            },
+          goto_next_end = {
+            [']M'] = { query = '@function.outer', desc = 'Next function end' },
+            [']['] = { query = '@class.outer', desc = 'Next class end' },
+          },
+          goto_previous_start = {
+            ['[m'] = { query = '@function.outer', desc = 'Previous function start' },
+            ['[['] = { query = '@class.outer', desc = 'Previous class start' },
+          },
+          goto_previous_end = {
+            ['[M'] = { query = '@function.outer', desc = 'Previous function end' },
+            ['[]'] = { query = '@class.outer', desc = 'Previous class end' },
+          },
+          goto_next = {
+            [']d'] = { query = '@conditional.outer', desc = 'Next start or end' },
+            ['[d'] = { query = '@conditional.outer', desc = 'Previous start or end' },
           },
         },
-      }
-    end,
+      },
+    },
+    keys = {
+      {
+        ';',
+        'nvim-treesitter.textobjects.repeatable_move.repeat_last_move_next',
+      },
+      {
+        ',',
+        'nvim-treesitter.textobjects.repeatable_move.repeat_last_move_previous',
+      },
+    },
   },
 }
