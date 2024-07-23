@@ -3,6 +3,7 @@
     "prefix": [
       "libraries"
     ],
+    "description": "insert commonly used libraries",
     "body": [
       "# Libraries",
       "library(tidyverse)",
@@ -14,6 +15,7 @@
     "prefix": [
       "function"
     ],
+    "description": "insert function template",
     "body": [
       "${1:name} <- function(${2:variable}) {",
       "  ${0}",

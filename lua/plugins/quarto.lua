@@ -1,18 +1,30 @@
 return {
-  'quarto-dev/quarto-nvim',
-  dependencies = {
-    {
-      'jmbuhr/otter.nvim',
-      opts = {},
+  {
+    'quarto-dev/quarto-nvim',
+    opts = {
+      codeRunner = {
+        enabled = true,
+        default_method = 'slime',
+      },
+    },
+    dependencies = {
+      {
+        'jmbuhr/otter.nvim',
+        opts = {},
+      },
+      {
+        'jpalardy/vim-slime',
+        init = function()
+          vim.g.slime_target = 'neovim'
+          vim.g.slime_cell_delimiter = '```'
+          vim.g.slime_no_mappings = true
+        end,
+        config = function()
+          vim.keymap.set({ 'n', 'i' }, '<M-cr>', function()
+            vim.cmd [[ call slime#send_cell()]]
+          end, { desc = 'Send code cell to terminal' })
+        end,
+      },
     },
   },
-  config = function()
-    require('quarto').setup {
-      lspFeatures = {
-        languages = { 'python', 'julia' },
-      },
-    }
-    vim.keymap.set('n', '<leader>qp', '<cmd>:QuartoPreview<cr>', { desc = '[Q]uarto [P]review' })
-    vim.keymap.set('n', '<leader>qs', '<cmd>:QuartoClosePreview<cr>', { desc = '[Q]uarto [S]top Preview' })
-  end,
 }

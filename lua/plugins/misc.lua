@@ -23,18 +23,8 @@ return {
     lazy = false,
   },
 
+  -- Syntax highlighting for kitty config
   'fladson/vim-kitty',
-
-  -- Pictograms for LSP completion items
-  'onsails/lspkind.nvim',
-
-  -- Slime
-  {
-    'jpalardy/vim-slime',
-    init = function()
-      vim.g.slime_target = 'neovim'
-    end,
-  },
 
   -- Neovim setup for init.lua and plugin development
   {

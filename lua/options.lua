@@ -75,3 +75,6 @@ opt.formatoptions:remove 'o'
 -- Disable netrw
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+
+-- Python virtual environment
+vim.g.python3_host_prog = vim.fn.expand '~/.local/share/virtualenvs/neovim/bin/python3'

@@ -6,11 +6,12 @@ return {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
+    lazy = false,
     opts = {
-      highlight = { enable = true },
-      indent = { enable = true },
       auto_install = true,
       ensure_installed = 'all',
+      highlight = { enable = true },
+      indent = { enable = true },
       incremental_selection = {
         enable = true,
         keymaps = {
@@ -55,16 +56,6 @@ return {
             ['[d'] = { query = '@conditional.outer', desc = 'Previous start or end' },
           },
         },
-      },
-    },
-    keys = {
-      {
-        ';',
-        'nvim-treesitter.textobjects.repeatable_move.repeat_last_move_next',
-      },
-      {
-        ',',
-        'nvim-treesitter.textobjects.repeatable_move.repeat_last_move_previous',
       },
     },
   },

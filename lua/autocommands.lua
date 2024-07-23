@@ -22,9 +22,18 @@ vim.filetype.add {
 }
 
 -- Replicate vim-pencil
-vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead' }, {
+vim.api.nvim_create_autocmd({ 'FileType' }, {
   desc = 'Better wrapping for long lines',
   pattern = { '*.md', '*.qmd' },
   group = vim.api.nvim_create_augroup('pencil', { clear = true }),
   command = 'set linebreak',
+})
+
+-- Disable line numbers for terminal
+vim.api.nvim_create_autocmd('TermOpen', {
+  desc = 'remove line numbers in terminals',
+  group = vim.api.nvim_create_augroup('terminal-line-numbers', { clear = true }),
+  callback = function()
+    vim.wo.number = false
+  end,
 })

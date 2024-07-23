@@ -33,6 +33,7 @@ return {
       },
     }
 
+    -- function to get word count
     local function wordcount()
       return tostring(vim.fn.wordcount().words) .. ' words'
     end

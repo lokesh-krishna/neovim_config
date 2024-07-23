@@ -599,5 +599,18 @@
     ],
     "description": "raw typst markup",
     "prefix": "typst_raw"
+  },
+  "code-chunk": {
+    "prefix": [
+      "rcc"
+    ],
+    "description": "insert r code chunk with label",
+    "body": [
+      "```{r}",
+      "#| label: $1",
+      "#| echo: false",
+      "#| warning: false",
+      "```"
+    ]
   }
 }

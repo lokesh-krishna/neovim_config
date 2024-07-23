@@ -36,6 +36,7 @@ return {
       'hrsh7th/cmp-cmdline',
       'kdheepak/cmp-latex-symbols',
       'jmbuhr/cmp-pandoc-references',
+      'onsails/lspkind.nvim',
     },
     config = function()
       -- See `:help cmp`
@@ -106,10 +107,11 @@ return {
           end, { 'i', 's' }),
         },
         sources = {
+          { name = 'otter' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
-          { name = 'cmp_r' },
+          -- { name = 'cmp_r' },
           { name = 'buffer', keyword_length = 5 },
           { name = 'spell', keyword_length = 5 },
           { name = 'calc' },
