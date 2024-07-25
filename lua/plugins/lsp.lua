@@ -8,10 +8,44 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
+      -- Configure LuaLS for editing Neovim config
+      {
+        {
+          'folke/lazydev.nvim',
+          ft = 'lua', -- only load on lua files
+          opts = {
+            library = {
+              -- See the configuration section for more details
+              -- Load luvit types when the `vim.uv` word is found
+              { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+            },
+          },
+        },
+        { 'Bilal2453/luvit-meta', lazy = true }, -- optional `vim.uv` typings
+        { -- optional completion source for require statements and module annotations
+          'hrsh7th/nvim-cmp',
+          opts = function(_, opts)
+            opts.sources = opts.sources or {}
+            table.insert(opts.sources, {
+              name = 'lazydev',
+              group_index = 0, -- set group index to 0 to skip loading LuaLS completions
+            })
+          end,
+        },
+      },
+
       -- Useful status updates for LSP.
       { 'j-hui/fidget.nvim', opts = {} },
     },
     config = function()
+      -- Mason
+      require('mason').setup {
+        ui = {
+          border = 'rounded',
+          height = 0.7,
+        },
+      }
+
       -- borders for LSPInfo
       require('lspconfig.ui.windows').default_options.border = 'rounded'
 
@@ -54,7 +88,7 @@ return {
           map('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
 
           -- Execute a code action, usually your cursor needs to be on top of an error
-          -- or a suggestion from your LSP for this to activate.
+          -- for a suggestion from your LSP for this to activate.
           map('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
 
           -- WARN: This is not Goto Definition, this is Goto Declaration.
@@ -135,14 +169,15 @@ return {
         -- Typst language server
         typst_lsp = {},
         -- YAML language server
-        yamlls = {},
-      }
-
-      -- Mason
-      require('mason').setup {
-        ui = {
-          border = 'rounded',
-          height = 0.7,
+        yamlls = {
+          settings = {
+            yaml = {
+              schemaStore = {
+                enable = true,
+                url = '',
+              },
+            },
+          },
         },
       }
 

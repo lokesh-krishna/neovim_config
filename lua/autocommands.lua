@@ -1,6 +1,4 @@
 -- Highlight when yanking (copying) text
---  Try it with `yap` in normal mode
---  See `:help vim.highlight.on_yank()`
 vim.api.nvim_create_autocmd('TextYankPost', {
   desc = 'Highlight when yanking (copying) text',
   group = vim.api.nvim_create_augroup('kickstart-highlight-yank', { clear = true }),
@@ -33,7 +31,5 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
 vim.api.nvim_create_autocmd('TermOpen', {
   desc = 'remove line numbers in terminals',
   group = vim.api.nvim_create_augroup('terminal-line-numbers', { clear = true }),
-  callback = function()
-    vim.wo.number = false
-  end,
+  command = 'setlocal nonumber norelativenumber',
 })

@@ -26,12 +26,6 @@ return {
   -- Syntax highlighting for kitty config
   'fladson/vim-kitty',
 
-  -- Neovim setup for init.lua and plugin development
-  {
-    'folke/neodev.nvim',
-    opts = {},
-  },
-
   -- Interactive vertical scrollbar
   {
     'dstein64/nvim-scrollview',

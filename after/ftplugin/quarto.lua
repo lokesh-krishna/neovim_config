@@ -14,8 +14,8 @@ vim.keymap.set('i', '<M-m>', ' |>', { buffer = true })
 vim.keymap.set('n', '<leader>qp', ':QuartoPreview<cr>', { desc = 'Quarto Preview' })
 vim.keymap.set('n', '<leader>qs', ':QuartoClosePreview<cr>', { desc = 'Close Quarto Preview' })
 
--- Launch terminal
-vim.keymap.set('n', '<leader>ri', ':split term://R<cr>', { desc = '[r] [i]nsert' })
-
 -- Fix indenting in R
 vim.g.r_indent_align_args = 0
+
+-- Delimiter for code cells in Quarto
+vim.g.slime_cell_delimiter = '```'

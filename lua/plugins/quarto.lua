@@ -16,13 +16,16 @@ return {
         'jpalardy/vim-slime',
         init = function()
           vim.g.slime_target = 'neovim'
-          vim.g.slime_cell_delimiter = '```'
+          vim.g.slime_cell_delimiter = '#\\s\\=%%'
           vim.g.slime_no_mappings = true
         end,
         config = function()
-          vim.keymap.set({ 'n', 'i' }, '<M-cr>', function()
-            vim.cmd [[ call slime#send_cell()]]
-          end, { desc = 'Send code cell to terminal' })
+          -- launch R terminal
+          vim.keymap.set('n', '<leader>ri', ':25split term://R<cr>', { desc = '[r] [i]nsert' })
+          -- send paragraph to Slime
+          vim.keymap.set('n', '<M-cr>', '<Plug>SlimeParagraphSend<cr>', { desc = 'Send paragraph to Slime' })
+          -- send lien to Slime
+          vim.keymap.set('n', '<M-i>', '<Plug>SlimeLineSend<cr>', { desc = 'Send line to Slime' })
         end,
       },
     },
