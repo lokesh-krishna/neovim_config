@@ -28,3 +28,17 @@ set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 -- Control split sizes
 set('n', '<M-,>', '<c-w>5<', { desc = 'Shrink split horizontally' })
 set('n', '<M-.>', '<c-w>5>', { desc = 'Expand split horizontally' })
+
+-- Grug-Far
+set('n', '<leader>gg', ':GrugFar<cr>', { desc = 'Global search and replace' })
+
+set('n', '<leader>gw', ':lua require("grug-far").grug_far({prefills = { search = vim.fn.expand("<cword>")}})<cr>', { desc = 'Search for word under cursor' })
+
+set('n', '<leader>gt', ':lua require("grug-far").grug_far({transient = true })<cr>', { desc = 'Launch as a transient buffer' })
+
+set(
+  'n',
+  '<leader>gl',
+  ':lua require("grug-far").grug_far({prefills = { paths = vim.fn.expand("%")}})<cr>',
+  { desc = 'Limit search and replace to current file' }
+)

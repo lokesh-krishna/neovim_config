@@ -26,9 +26,10 @@ return {
           end,
         },
       },
-      'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
+      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'hrsh7th/cmp-nvim-lsp',
+      'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-calc',
       'hrsh7th/cmp-emoji',
@@ -37,6 +38,8 @@ return {
       'kdheepak/cmp-latex-symbols',
       'jmbuhr/cmp-pandoc-references',
       'onsails/lspkind.nvim',
+      'ray-x/cmp-treesitter',
+      'amarakon/nvim-cmp-fonts',
     },
     config = function()
       -- See `:help cmp`
@@ -108,18 +111,25 @@ return {
         },
         sources = {
           { name = 'otter' },
+          { name = 'nvim_lsp_signature_help' },
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
-          { name = 'path' },
-          -- { name = 'cmp_r' },
-          { name = 'buffer', keyword_length = 5 },
+          { name = 'treesitter', keyword_length = 5, max_item_count = 3 },
+          { name = 'pandoc_references' },
+          { name = 'buffer', keyword_length = 5, max_item_count = 3 },
           { name = 'spell', keyword_length = 5 },
+          { name = 'fonts', option = { space_filter = '-' } },
+          { name = 'path' },
           { name = 'calc' },
           { name = 'latex_symbols' },
-          { name = 'pandoc_references' },
           { name = 'emoji' },
         },
       }
+
+      -- Limit font autocompletion to config files
+      cmp.setup.filetype({ 'conf', 'config', 'swayconfig' }, { sources = {
+        { name = 'fonts' },
+      } })
 
       -- Make markdown snippets available in quarto
       luasnip.filetype_extend('quarto', { 'markdown' })
