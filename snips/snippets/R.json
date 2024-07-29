@@ -6,8 +6,16 @@
     "description": "insert commonly used libraries",
     "body": [
       "# Libraries",
-      "library(tidyverse)",
+      "library(ggplot2)",
+      "library(dplyr)",
+      "library(tidyr)",
+      "library(readr)",
+      "library(purrr)",
+      "library(tibble)",
+      "library(stringr)",
+      "library(forcats)",
       "library(here)",
+      "library(hrbrthemes)",
       "library(janitor)"
     ]
   },

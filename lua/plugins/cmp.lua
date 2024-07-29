@@ -110,15 +110,15 @@ return {
           end, { 'i', 's' }),
         },
         sources = {
-          { name = 'otter' },
-          { name = 'nvim_lsp_signature_help' },
+          { name = 'cmp_r' },
           { name = 'nvim_lsp' },
+          { name = 'nvim_lsp_signature_help' },
           { name = 'luasnip' },
           { name = 'treesitter', keyword_length = 5, max_item_count = 3 },
           { name = 'pandoc_references' },
           { name = 'buffer', keyword_length = 5, max_item_count = 3 },
           { name = 'spell', keyword_length = 5 },
-          { name = 'fonts', option = { space_filter = '-' } },
+          -- { name = 'fonts', option = { space_filter = '-' } },
           { name = 'path' },
           { name = 'calc' },
           { name = 'latex_symbols' },
@@ -128,7 +128,7 @@ return {
 
       -- Limit font autocompletion to config files
       cmp.setup.filetype({ 'conf', 'config', 'swayconfig' }, { sources = {
-        { name = 'fonts' },
+        { name = 'fonts', option = { space_filter = '-' } },
       } })
 
       -- Make markdown snippets available in quarto

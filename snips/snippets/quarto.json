@@ -543,8 +543,8 @@
       "    documentclass: scrartcl",
       "    toc: false",
       "    number-sections: false",
-      "    mainfont: William Text Pro",
-      "    mathfont: IBM Plex Math Beta 240212",
+      "    mainfont: STIX Two Text",
+      "    mathfont: STIX Two Math",
       "    include-in-header:",
       "      text: |",
       "        \\addtokomafont{disposition}{\\rmfamily}",
@@ -611,6 +611,37 @@
       "#| echo: false",
       "#| warning: false",
       "```"
+    ]
+  },
+  "libraries": {
+    "prefix": [
+      "libraries"
+    ],
+    "description": "insert commonly used libraries",
+    "body": [
+      "# Libraries",
+      "library(ggplot2)",
+      "library(dplyr)",
+      "library(tidyr)",
+      "library(readr)",
+      "library(purrr)",
+      "library(tibble)",
+      "library(stringr)",
+      "library(forcats)",
+      "library(here)",
+      "library(hrbrthemes)",
+      "library(janitor)"
+    ]
+  },
+  "function": {
+    "prefix": [
+      "function"
+    ],
+    "description": "insert function template",
+    "body": [
+      "${1:name} <- function(${2:variable}) {",
+      "  ${0}",
+      "}"
     ]
   }
 }

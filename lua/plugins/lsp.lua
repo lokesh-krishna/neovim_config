@@ -115,6 +115,11 @@ return {
         end,
       })
 
+      -- Ensure lintr for R
+      vim.g.LanguageClient_serverCommands = {
+        r = { 'R', '--slave', '-e', 'languageserver::run()' },
+      }
+
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP Specification.
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
