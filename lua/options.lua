@@ -76,5 +76,8 @@ opt.formatoptions:remove 'o'
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
+-- conceal level for obsidian.nvim
+opt.conceallevel = 2
+
 -- Python virtual environment
 vim.g.python3_host_prog = vim.fn.expand '~/.local/share/virtualenvs/neovim/bin/python3'

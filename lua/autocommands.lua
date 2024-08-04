@@ -11,7 +11,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.filetype.add {
   filename = {
     ['.Rprofile'] = 'r',
-    ['hyprland.conf'] = 'conf',
     ['config'] = 'conf',
   },
   extension = {

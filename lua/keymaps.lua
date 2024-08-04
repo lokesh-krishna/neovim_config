@@ -42,3 +42,12 @@ set(
   ':lua require("grug-far").grug_far({prefills = { paths = vim.fn.expand("%")}})<cr>',
   { desc = 'Limit search and replace to current file' }
 )
+
+-- Obsidian
+set('n', '<leader>on', ':ObsidianNew<cr>', { desc = 'Create new note' })
+set('n', '<leader>oq', ':ObsidianQuickSwitch<cr>', { desc = 'Quickly switch to another note' })
+set('n', '<leader>ob', ':ObsidianBacklinks<cr>', { desc = 'References to current buffer' })
+set('n', '<leader>os', ':ObsidianSearch<cr>', { desc = 'Search for notes' })
+set('n', '<leader>ot', ':ObsidianTags<cr>', { desc = 'Search for all occurrences of given tags' })
+set('n', '<leader>ol', ':ObsidianLink<cr>', { desc = 'Link inline visual selection of text to note' })
+set('n', '<leader>oL', ':ObsidianLinks<cr>', { desc = 'All links in current buffer' })
