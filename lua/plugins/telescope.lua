@@ -95,13 +95,11 @@ return {
       vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
       vim.keymap.set('n', '<leader>sz', '<cmd>:Telescope zotero<cr>', { desc = '[S]earch [Z]otero' })
       vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>s.', '<cmd>:Telescope frecency<cr>',
-        { desc = '[S]earch Recent Files ("." for repeat)' })
+      vim.keymap.set('n', '<leader>s.', '<cmd>:Telescope frecency<cr>', { desc = '[S]earch Recent Files ("." for repeat)' })
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       -- Slightly advanced example of overriding default behavior and theme
-      vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find,
-        { desc = '[/] Fuzzily search in current buffer' })
+      vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
 
       -- Also possible to pass additional configuration options.
       --  See `:help telescope.builtin.live_grep()` for information about particular keys
@@ -115,11 +113,11 @@ return {
       -- Shortcut for searching your neovim configuration files
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[S]earch [N]eovim files' })
+      end, { desc = '[S]earch [n]eovim files' })
       -- Shortcut to search in my notes
       vim.keymap.set('n', '<leader>sN', function()
         builtin.find_files { cwd = '~/documents/notes' }
-      end, { desc = '[S]earch [N]eovim files' })
+      end, { desc = '[S]earch [N]otes' })
     end,
   },
 }
