@@ -81,3 +81,6 @@ opt.conceallevel = 2
 
 -- Python virtual environment
 vim.g.python3_host_prog = vim.fn.expand '~/.local/share/virtualenvs/neovim/bin/python3'
+
+-- Disable lsp signs
+vim.diagnostic.config { signs = false }

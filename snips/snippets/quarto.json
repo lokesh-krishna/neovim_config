@@ -545,6 +545,9 @@
       "    number-sections: false",
       "    mainfont: STIX Two Text",
       "    mathfont: STIX Two Math",
+      "    execute:",
+      "     echo: false",
+      "     warning: false",
       "    include-in-header:",
       "      text: |",
       "        \\addtokomafont{disposition}{\\rmfamily}",
@@ -620,14 +623,7 @@
     "description": "insert commonly used libraries",
     "body": [
       "# Libraries",
-      "library(ggplot2)",
-      "library(dplyr)",
-      "library(tidyr)",
-      "library(readr)",
-      "library(purrr)",
-      "library(tibble)",
-      "library(stringr)",
-      "library(forcats)",
+      "library(tidyverse)",
       "library(here)",
       "library(hrbrthemes)",
       "library(janitor)"
@@ -640,6 +636,17 @@
     "description": "insert function template",
     "body": [
       "${1:name} <- function(${2:variable}) {",
+      "  ${0}",
+      "}"
+    ]
+  },
+  "for": {
+    "prefix": [
+      "for"
+    ],
+    "description": "insert a for loop",
+    "body": [
+      "for (i in ${1}) {",
       "  ${0}",
       "}"
     ]
