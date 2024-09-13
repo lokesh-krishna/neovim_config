@@ -2,9 +2,6 @@
 vim.g.mapleader = ' '
 -- vim.g.maplocalleader = ' '
 
--- [[ Setting options ]]
-require 'options'
-
 -- [[ Basic Keymaps ]]
 require 'keymaps'
 
@@ -16,3 +13,6 @@ require 'lazy-bootstrap'
 
 -- [[ Setting up lazy with its plugins ]]
 require 'lazy-plugins'
+
+-- [[ Setting options ]]
+require 'options'

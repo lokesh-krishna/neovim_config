@@ -3,10 +3,8 @@ local opt = vim.opt
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
--- Make line numbers default
+-- Make line numbers and relative line numbers default
 opt.number = true
--- You can also add relative line numbers, for help with jumping.
---  Experiment for yourself to see if you like it!
 opt.relativenumber = true
 
 -- Enable mouse mode, can be useful for resizing splits for example!
