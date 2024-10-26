@@ -1,7 +1,7 @@
 -- Plugins with no configuration or single line configuration
 return {
   -- Highlight todo, notes, etc in comments
-  { 'folke/todo-comments.nvim', event = 'VimEnter', dependencies = { 'nvim-lua/plenary.nvim' }, opts = { signs = false } },
+  { 'folke/todo-comments.nvim', event = 'VimEnter', opts = { signs = false } },
 
   -- Color highlighter
   {

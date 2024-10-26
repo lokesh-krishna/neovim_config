@@ -57,7 +57,7 @@ opt.scrolloff = 10
 -- Set tabstop
 opt.softtabstop = 2
 opt.shiftwidth = 2
--- opt.noexpandtab = true
+opt.expandtab = true
 
 -- Spellchecking
 opt.spell = true
