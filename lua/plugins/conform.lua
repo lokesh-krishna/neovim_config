@@ -8,18 +8,8 @@ return {
         timeout_ms = 1000,
         lsp_format = 'fallback',
       },
-      formatters = {
-        rprettify = {
-          inherit = false,
-          stdin = false,
-          command = 'rprettify',
-          args = { '$FILENAME' },
-        },
-      },
       formatters_by_ft = {
         lua = { 'stylua' },
-        r = { 'rprettify' },
-        quarto = { 'rprettify' },
       },
     },
   },
