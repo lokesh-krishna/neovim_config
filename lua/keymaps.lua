@@ -29,6 +29,9 @@ set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 set('n', '<M-,>', '<c-w>5<', { desc = 'Shrink split horizontally' })
 set('n', '<M-.>', '<c-w>5>', { desc = 'Expand split horizontally' })
 
+-- Mason
+set('n', '<leader>m', ':Mason<cr>', { desc = 'Portable package manager for LSPs, linters and formatters' })
+
 -- Grug-Far
 set('n', '<leader>gg', ':GrugFar<cr>', { desc = 'Global search and replace' })
 
