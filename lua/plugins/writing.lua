@@ -1,4 +1,5 @@
 return {
+  -- zen mode
   {
     'folke/zen-mode.nvim',
     opts = {
@@ -20,6 +21,7 @@ return {
       },
     },
   },
+  -- twilight
   {
     'folke/twilight.nvim',
     keys = {
@@ -30,6 +32,7 @@ return {
       },
     },
   },
+  -- autolist
   {
     'gaoDean/autolist.nvim',
     ft = {
