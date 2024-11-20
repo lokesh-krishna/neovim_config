@@ -122,11 +122,6 @@ return {
         end,
       })
 
-      -- Ensure lintr for R
-      vim.g.LanguageClient_serverCommands = {
-        r = { 'R', '--slave', '-e', 'languageserver::run()' },
-      }
-
       -- LSP servers and clients are able to communicate to each other what features they support.
       --  By default, Neovim doesn't support everything that is in the LSP Specification.
       --  When you add nvim-cmp, luasnip, etc. Neovim now has *more* capabilities.
@@ -154,32 +149,8 @@ return {
             },
           },
         },
-        -- Bash language server
-        bashls = {},
-        -- VSCode CSS language server
-        cssls = {},
-        -- VSCode HTML language server
-        html = {},
-        -- Json language server
-        jsonls = {},
-        -- Grammar language server
-        ltex = {
-          settings = {
-            ltex = {
-              language = 'en-GB', -- Check against British English
-            },
-          },
-        },
-        -- Perl language server
-        perlnavigator = {},
-        -- Python language server
-        pyright = {},
-        -- R language server
-        r_language_server = {
-          filetypes = { 'r', 'rmd', 'quarto' },
-        },
-        -- Typst language server
-        typst_lsp = {},
+        -- Docker language server
+        docker_compose_language_service = {},
         -- YAML language server
         yamlls = {
           settings = {

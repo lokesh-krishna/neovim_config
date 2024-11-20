@@ -13,16 +13,6 @@ return {
     end,
   },
 
-  -- Syntax highlighting for typst
-  {
-    'kaarmu/typst.vim',
-    ft = 'typst',
-    lazy = false,
-  },
-
-  -- Syntax highlighting for kitty config
-  'fladson/vim-kitty',
-
   -- Interactive vertical scrollbar
   {
     'dstein64/nvim-scrollview',

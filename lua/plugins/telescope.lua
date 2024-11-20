@@ -9,20 +9,6 @@ return {
       { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
       { 'nvim-telescope/telescope-frecency.nvim' },
       { 'nvim-telescope/telescope-ui-select.nvim' },
-      -- List references from local Zotero library and add them to existing bib file
-      {
-        'jmbuhr/telescope-zotero.nvim',
-        dependencies = {
-          { 'kkharji/sqlite.lua' },
-        },
-        config = function()
-          require('zotero').setup {
-            zotero_db_path = '/home/loki/.local/share/zotero/zotero.sqlite',
-            better_bibtex_db_path = '/home/loki/.local/share/zotero/better-bibtex.sqlite',
-          }
-          require('telescope').load_extension 'zotero'
-        end,
-      },
       -- Useful for getting pretty icons, but requires special font.
       --  If you already have a Nerd Font, or terminal set up with fallback fonts
       --  you can enable this
@@ -105,10 +91,6 @@ return {
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [n]eovim files' })
-      -- Shortcut to search in my notes
-      vim.keymap.set('n', '<leader>sN', function()
-        builtin.find_files { cwd = '~/documents/notes' }
-      end, { desc = '[S]earch [N]otes' })
     end,
   },
 }
