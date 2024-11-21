@@ -32,6 +32,9 @@ set('n', '<M-.>', '<c-w>5>', { desc = 'Expand split horizontally' })
 -- Mason
 set('n', '<leader>m', ':Mason<cr>', { desc = 'Portable package manager for LSPs, linters and formatters' })
 
+-- Lazy
+set('n', '<leader>ll', ':Lazy<cr>', { desc = 'Plugin manager' })
+
 -- Grug-Far
 set('n', '<leader>gg', ':GrugFar<cr>', { desc = 'Global search and replace' })
 
