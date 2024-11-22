@@ -13,6 +13,9 @@ return {
     end,
   },
 
+  -- Syntax highlighting for Caddyfile
+  { 'isobit/vim-caddyfile' },
+
   -- Interactive vertical scrollbar
   {
     'dstein64/nvim-scrollview',
