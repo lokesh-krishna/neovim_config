@@ -11,8 +11,5 @@ require 'autocommands'
 -- [[ Bootstrapping `lazy.nvim` plugin manager ]]
 require 'lazy-bootstrap'
 
--- [[ Setting up lazy with its plugins ]]
-require 'lazy-plugins'
-
 -- [[ Setting options ]]
 require 'options'
