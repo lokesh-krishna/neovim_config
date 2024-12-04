@@ -1,6 +1,11 @@
 --  See `:help vim.keymap.set()`
 local set = vim.keymap.set
 
+-- Run lua code more easily
+set('n', '<leader><leader>x', '<cmd>source %<cr>')
+set('n', '<leader>x', ':.lua<cr>')
+set('v', '<leader>x', ':lua<cr>')
+
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
