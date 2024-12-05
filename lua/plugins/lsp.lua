@@ -179,7 +179,7 @@ return {
           filetypes = { 'r', 'rmd', 'quarto' },
         },
         -- Typst language server
-        typst_lsp = {},
+        tinymist = {},
         -- YAML language server
         yamlls = {
           settings = {
