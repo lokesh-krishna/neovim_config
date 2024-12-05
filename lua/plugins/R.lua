@@ -22,7 +22,11 @@ return {
     assignment_keymap = '',
     pipe_keymap = '',
     -- use visidata to view dataframes
-    csv_app = 'terminal:vd',
+    view_df = {
+      open_app = 'terminal:vd',
+      save_fun = "function(obj, obj_name) {f <- paste0(obj_name, '.parquet'); arrow::write_parquet(obj, f) ; f}",
+      n_lines = 0,
+    },
     -- disable direct sending of lines
     max_paste_lines = 0,
     -- split path with here
