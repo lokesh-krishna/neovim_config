@@ -2,9 +2,9 @@
 local set = vim.keymap.set
 
 -- Run lua code more easily
-set('n', '<leader>rc', '<cmd>source %<cr>', { desc = 'Run current file' })
-set('n', '<leader>rl', ':.lua<cr>', { desc = 'Run current line' })
-set('v', '<leader>rl', ':lua<cr>', { desc = 'Run current line' })
+set('n', '<leader>cf', ':source %<cr>', { desc = '[C]ode: Run [F]ile' })
+set('n', '<leader>cl', ':.lua<cr>', { desc = '[C]ode: Rule [L]ine' })
+set('v', '<leader>cl', ':lua<cr>', { desc = '[C]ode: Rule [L]ine' })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 set('n', '<Esc>', '<cmd>nohlsearch<CR>')
@@ -34,22 +34,17 @@ set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 set('n', '<M-,>', '<c-w>5<', { desc = 'Shrink split horizontally' })
 set('n', '<M-.>', '<c-w>5>', { desc = 'Expand split horizontally' })
 
--- Mason
-set('n', '<leader>m', ':Mason<cr>', { desc = 'Portable package manager for LSPs, linters and formatters' })
-
--- Lazy
-set('n', '<leader>ll', ':Lazy<cr>', { desc = 'Plugin manager' })
+-- Plugin
+set('n', '<leader>pm', ':Mason<cr>', { desc = '[P]lugin: [M]ason' })
+set('n', '<leader>pl', ':Lazy<cr>', { desc = '[P]lugin: [L]azy' })
 
 -- Grug-Far
-set('n', '<leader>gg', ':GrugFar<cr>', { desc = 'Global search and replace' })
-
-set('n', '<leader>gw', ':lua require("grug-far").grug_far({prefills = { search = vim.fn.expand("<cword>")}})<cr>', { desc = 'Search for word under cursor' })
-
-set('n', '<leader>gt', ':lua require("grug-far").grug_far({transient = true })<cr>', { desc = 'Launch as a transient buffer' })
-
+set('n', '<leader>fg', ':GrugFar<cr>', { desc = '[F]ind [G]lobally' })
+set('n', '<leader>fw', ':lua require("grug-far").grug_far({prefills = { search = vim.fn.expand("<cword>")}})<cr>', { desc = '[F]ind current [W]ord' })
 set(
   'n',
-  '<leader>gl',
-  ':lua require("grug-far").grug_far({prefills = { paths = vim.fn.expand("%")}})<cr>',
-  { desc = 'Limit search and replace to current file' }
+  '<leader>fv',
+  ':<C-u>lua require("grug-far").with_visual_selection( { prefills = { paths = vim.fn.expand("%") } } )',
+  { desc = '[F]ind [V]isual selection' }
 )
+set('n', '<leader>fb', ':lua require("grug-far").grug_far({prefills = { paths = vim.fn.expand("%")}})<cr>', { desc = '[F]ind in [B]uffer' })

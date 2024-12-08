@@ -12,9 +12,9 @@ return {
     },
     keys = {
       {
-        '<leader>lg',
+        '<leader>pg',
         '<cmd>LazyGitCurrentFile<cr>',
-        desc = 'LazyGit',
+        desc = '[P]lugin: Lazy[G]it',
       },
     },
   },

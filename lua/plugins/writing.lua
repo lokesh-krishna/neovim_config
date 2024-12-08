@@ -15,9 +15,9 @@ return {
     },
     keys = {
       {
-        '<leader>wz',
+        '<leader>tz',
         '<cmd>:ZenMode<CR>',
-        desc = '[Writing] in [Zen] Mode',
+        desc = '[T]oggle [Zen] Mode',
       },
     },
   },
@@ -26,9 +26,9 @@ return {
     'folke/twilight.nvim',
     keys = {
       {
-        '<leader>wt',
+        '<leader>tt',
         '<cmd>:Twilight<CR>',
-        desc = '[W]riting in [T]wilight',
+        desc = '[T]oggle [T]wilight',
       },
     },
   },
