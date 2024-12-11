@@ -114,6 +114,7 @@ return {
           end
 
           -- Toggle inlay hints
+          ---@diagnostic disable-next-line: missing-parameter, param-type-mismatch
           if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
             map('<leader>th', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })

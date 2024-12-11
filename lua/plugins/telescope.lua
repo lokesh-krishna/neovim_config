@@ -15,13 +15,11 @@ return {
         dependencies = {
           { 'kkharji/sqlite.lua' },
         },
-        config = function()
-          require('zotero').setup {
-            zotero_db_path = '/home/loki/.local/share/zotero/zotero.sqlite',
-            better_bibtex_db_path = '/home/loki/.local/share/zotero/better-bibtex.sqlite',
-          }
-          require('telescope').load_extension 'zotero'
-        end,
+        main = 'zotero',
+        opts = {
+          zotero_db_path = '/home/loki/.local/share/zotero/zotero.sqlite',
+          better_bibtex_db_path = '/home/loki/.local/share/zotero/better-bibtex.sqlite',
+        },
       },
       -- Useful for getting pretty icons, but requires special font.
       --  If you already have a Nerd Font, or terminal set up with fallback fonts
@@ -52,7 +50,6 @@ return {
             },
           },
         },
-        -- pickers = {}
         extensions = {
           fzf = {
             fuzzy = true,
@@ -73,42 +70,47 @@ return {
       require('telescope').load_extension 'ui-select'
       require('telescope').load_extension 'fzf'
       require('telescope').load_extension 'frecency'
-
-      -- See `:help telescope.builtin`
-      local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', '<leader>sh', builtin.help_tags, { desc = '[S]earch [h]elp' })
-      vim.keymap.set('n', '<leader>sH', builtin.search_history, { desc = '[S]earch [H]istory' })
-      vim.keymap.set('n', '<leader>sk', builtin.keymaps, { desc = '[S]earch [K]eymaps' })
-      vim.keymap.set('n', '<leader>sf', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', '<leader>ss', builtin.spell_suggest, { desc = '[S]earch [s]pelling Suggestions' })
-      vim.keymap.set('n', '<leader>sw', builtin.grep_string, { desc = '[S]earch current [W]ord' })
-      vim.keymap.set('n', '<leader>sg', builtin.live_grep, { desc = '[S]earch by [G]rep' })
-      vim.keymap.set('n', '<leader>sd', builtin.diagnostics, { desc = '[S]earch [D]iagnostics' })
-      vim.keymap.set('n', '<leader>sz', '<cmd>:Telescope zotero<cr>', { desc = '[S]earch [Z]otero' })
-      vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = '[S]earch [R]esume' })
-      vim.keymap.set('n', '<leader>s.', ':Telescope frecency<cr>', { desc = '[S]earch Recent Files ("." for repeat)' })
-      vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
-
-      -- Slightly advanced example of overriding default behavior and theme
-      vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { desc = '[/] Fuzzily search in current buffer' })
-
-      -- Also possible to pass additional configuration options.
-      --  See `:help telescope.builtin.live_grep()` for information about particular keys
-      vim.keymap.set('n', '<leader>s/', function()
-        builtin.live_grep {
-          grep_open_files = true,
-          prompt_title = 'Live Grep in Open Files',
-        }
-      end, { desc = '[S]earch [/] in Open Files' })
-
-      -- Shortcut for searching your neovim configuration files
-      vim.keymap.set('n', '<leader>sn', function()
-        builtin.find_files { cwd = vim.fn.stdpath 'config' }
-      end, { desc = '[S]earch [n]eovim files' })
-      -- Shortcut to search in my notes
-      vim.keymap.set('n', '<leader>sN', function()
-        builtin.find_files { cwd = '~/documents/notes' }
-      end, { desc = '[S]earch [N]otes' })
     end,
+    keys = {
+      { '<leader>sh', '<cmd>Telescope help_tags<cr>', desc = '[S]earch [h]elp' },
+      { '<leader>sH', '<cmd>Telescope search_history<cr>', desc = '[S]earch [H]istory' },
+      { '<leader>sk', '<cmd>Telescope keymaps<cr>', desc = '[S]earch [k]eymaps' },
+      { '<leader>sf', '<cmd>Telescope find_files<cr>', desc = '[S]earch [f]iles' },
+      { '<leader>ss', '<cmd>Telescope spell_suggest<cr>', desc = '[S]earch [s]pellings' },
+      { '<leader>sw', '<cmd>Telescope grep_string<cr>', desc = '[S]earch [w]ord under cursor' },
+      { '<leader>sg', '<cmd>Telescope live_grep<cr>', desc = '[S]earch with [g]rep in all files in folder' },
+      { '<leader>sd', '<cmd>Telescope diagnostics<cr>', desc = '[S]earch [d]iagnostics' },
+      { '<leader>sz', '<cmd>Telescope zotero<cr>', desc = '[S]earch [Z]otero' },
+      { '<leader>sr', '<cmd>Telescope resume<cr>', desc = '[S]earch [r]esume' },
+      { '<leader>s.', '<cmd>Telescope frecency<cr>', desc = '[S]earch recent files' },
+      { '<leader><leader>', '<cmd>Telescope buffers<cr>', desc = '[] Search for existing buffers' },
+      { '<leader>/', '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = '[/] Fuzzy search in buffer' },
+      {
+        '<leader>sG',
+        function()
+          require('plugins.functions.multigrep').setup()
+        end,
+        desc = '[S]earch with [G]lobbing',
+      },
+      {
+        '<leader>s/',
+        function()
+          require('telescope.builtin').live_grep {
+            grep_open_files = true,
+            prompt_title = 'Live grep in open files',
+          }
+        end,
+        desc = '[S]earch [/] in open files',
+      },
+      {
+        '<leader>sn',
+        function()
+          require('telescope.builtin').find_files {
+            cwd = vim.fn.stdpath 'config',
+          }
+        end,
+        desc = '[S]earch [n]eovim files',
+      },
+    },
   },
 }
