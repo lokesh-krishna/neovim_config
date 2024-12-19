@@ -14,6 +14,7 @@ return {
           headlines = true,
           mason = true,
           lsp_trouble = true,
+          blink_cmp = true,
         },
         custom_highlights = function(colors)
           return {
