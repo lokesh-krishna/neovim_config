@@ -9,6 +9,10 @@ set('v', '<leader>cl', ':lua<cr>', { desc = '[C]ode: Rule [L]ine' })
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
 set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- quickfix movement
+set('n', '<M-j>', '<cmd>cnext<cr>', { desc = 'Move to next quickfix list item' })
+set('n', '<M-k>', '<cmd>cprev<cr>', { desc = 'Move to previous quickfix list item' })
+
 -- Diagnostic keymaps
 set('n', '<leader>eq', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 set('n', '<leader>es', vim.diagnostic.open_float, { desc = 'Hover diagnostic' })

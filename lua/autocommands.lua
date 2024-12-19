@@ -26,9 +26,12 @@ vim.api.nvim_create_autocmd({ 'FileType' }, {
   command = 'set linebreak',
 })
 
--- Disable line numbers for terminal
+-- terminal customisation
 vim.api.nvim_create_autocmd('TermOpen', {
-  desc = 'remove line numbers in terminals',
-  group = vim.api.nvim_create_augroup('terminal-line-numbers', { clear = true }),
-  command = 'setlocal nonumber norelativenumber',
+  desc = 'disable line numbers and easily enter normal mode',
+  group = vim.api.nvim_create_augroup('custom-term-open', { clear = true }),
+  callback = function()
+    vim.opt.number = false
+    vim.opt.relativenumber = false
+  end,
 })
