@@ -1,7 +1,8 @@
 -- Autocompletion
 return {
   {
-    'hrsh7th/nvim-cmp',
+    'iguanacucumber/magazine.nvim',
+    name = 'nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
@@ -26,15 +27,15 @@ return {
           end,
         },
       },
-      'hrsh7th/cmp-path',
+      'https://codeberg.org/FelipeLema/cmp-async-path',
       'hrsh7th/cmp-nvim-lsp-signature-help',
-      'hrsh7th/cmp-nvim-lsp',
+      { 'iguanacucumber/mag-nvim-lsp', name = 'cmp-nvim-lsp', opts = {} },
+      { 'iguanacucumber/mag-nvim-lua', name = 'cmp-nvim-lua' },
+      { 'iguanacucumber/mag-buffer', name = 'cmp-buffer' },
+      { 'iguanacucumber/mag-cmdline', name = 'cmp-cmdline' },
       'saadparwaiz1/cmp_luasnip',
-      'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-calc',
-      'hrsh7th/cmp-emoji',
       'f3fora/cmp-spell',
-      'hrsh7th/cmp-cmdline',
       'kdheepak/cmp-latex-symbols',
       'jmbuhr/cmp-pandoc-references',
       'onsails/lspkind.nvim',
@@ -119,10 +120,9 @@ return {
           { name = 'buffer', keyword_length = 5, max_item_count = 3 },
           { name = 'spell', keyword_length = 5 },
           -- { name = 'fonts', option = { space_filter = '-' } },
-          { name = 'path' },
+          { name = 'async_path' },
           { name = 'calc' },
           { name = 'latex_symbols' },
-          { name = 'emoji' },
         },
       }
 
