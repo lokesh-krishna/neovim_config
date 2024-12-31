@@ -7,7 +7,7 @@ return {
       preset = 'modern',
       spec = {
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
-        { '<leader>d', group = '[D]ocument' },
+        { '<leader>d', group = '[D]ebug' },
         { '<leader>e', group = '[E]rrors' },
         { '<leader>f', group = '[F]ind' },
         { '<leader>l', group = '[L]SP' },
