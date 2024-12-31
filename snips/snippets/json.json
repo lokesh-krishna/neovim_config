@@ -1,13 +1,25 @@
 {
-    "Snippets": {
-        "body": [
-            "\"${1: <++>}\": {",
-            "\"body\": \"${2: <++>}\",",
-            "\"description\": \"${3: <++>}\",",
-            "\"prefix\": \"${4: <++>}\"",
-            "},"
-        ],
-        "description": "Insert Snippets",
-        "prefix": "snip"
-    }
+  "Snippets": {
+    "body": [
+      "\"${1: <++>}\": {",
+      "\"body\": \"${2: <++>}\",",
+      "\"description\": \"${3: <++>}\",",
+      "\"prefix\": \"${4: <++>}\"",
+      "},"
+    ],
+    "description": "Insert Snippets",
+    "prefix": "snip"
+  },
+  "pyright": {
+    "prefix": "pyright",
+    "body": [
+      "{",
+      "  \"executionEnvironments\": [",
+      "    {",
+      "      \"root\": \"src\"",
+      "    }",
+      "  ]",
+      "}"
+    ]
+  }
 }
