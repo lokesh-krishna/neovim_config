@@ -18,9 +18,6 @@ return {
     auto_start = 'always',
     -- always open in vertical split
     rconsole_width = 0,
-    -- disable assignment and pipe keymaps
-    assignment_keymap = '',
-    pipe_keymap = '',
     -- use visidata to view dataframes
     view_df = {
       open_app = 'terminal:vd',
