@@ -18,14 +18,6 @@ vim.filetype.add {
   },
 }
 
--- Replicate vim-pencil
-vim.api.nvim_create_autocmd({ 'FileType' }, {
-  desc = 'Better wrapping for long lines',
-  pattern = { '*.md', '*.qmd' },
-  group = vim.api.nvim_create_augroup('pencil', { clear = true }),
-  command = 'set linebreak',
-})
-
 -- terminal customisation
 vim.api.nvim_create_autocmd('TermOpen', {
   desc = 'disable line numbers and easily enter normal mode',
