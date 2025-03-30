@@ -82,3 +82,10 @@ vim.g.python3_host_prog = vim.fn.expand '~/.local/share/virtualenvs/neovim/bin/p
 
 -- Disable lsp signs
 vim.diagnostic.config { signs = false }
+
+-- Virtual lines
+vim.diagnostic.config {
+  virtual_lines = {
+    current_line = true,
+  },
+}
