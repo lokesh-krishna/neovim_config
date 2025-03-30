@@ -20,9 +20,6 @@ return {
     lazy = false,
   },
 
-  -- Syntax highlighting for kitty config
-  'fladson/vim-kitty',
-
   -- Interactive vertical scrollbar
   {
     'dstein64/nvim-scrollview',
