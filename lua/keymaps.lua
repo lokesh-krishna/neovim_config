@@ -52,3 +52,6 @@ set(
   { desc = '[F]ind [V]isual selection' }
 )
 set('n', '<leader>fb', ':lua require("grug-far").grug_far({prefills = { paths = vim.fn.expand("%")}})<cr>', { desc = '[F]ind in [B]uffer' })
+
+-- nvim-notify
+set('n', '<leader>nd', ':lua require("notify").dismiss()<cr>', { desc = '[N]otificaitons [D]ismiss' })

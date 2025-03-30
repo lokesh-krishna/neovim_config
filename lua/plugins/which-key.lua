@@ -11,7 +11,7 @@ return {
         { '<leader>e', group = '[E]rrors' },
         { '<leader>f', group = '[F]ind' },
         { '<leader>l', group = '[L]SP' },
-        { '<leader>n', group = '[N]vim-Tree' },
+        { '<leader>n', group = '[N]vim-Tree/[N]otifications' },
         { '<leader>p', group = '[P]lugins' },
         { '<leader>T', group = '[T]rouble' },
         { '<leader>r', group = '[R]ename' },
