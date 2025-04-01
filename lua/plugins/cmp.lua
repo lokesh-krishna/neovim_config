@@ -69,7 +69,7 @@ return {
             winhighlight = 'Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None',
           },
         },
-        completion = { completeopt = 'menu,menuone,noinsert' },
+        completion = { completeopt = 'menu,menuone,noinsert,fuzzy' },
 
         -- For an understanding of why these mappings were
         -- chosen, you will need to read `:help ins-completion`
