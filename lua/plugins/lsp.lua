@@ -192,6 +192,8 @@ return {
             },
           },
         },
+        -- TOML language server
+        taplo = {},
       }
 
       -- You can add other tools here that you want Mason to install
