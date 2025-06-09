@@ -33,6 +33,7 @@ return {
       { 'iguanacucumber/mag-nvim-lua', name = 'cmp-nvim-lua' },
       { 'iguanacucumber/mag-buffer', name = 'cmp-buffer' },
       { 'iguanacucumber/mag-cmdline', name = 'cmp-cmdline' },
+      'R-nvim/cmp-r',
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-calc',
       'f3fora/cmp-spell',

@@ -1,18 +1,6 @@
 return {
   'R-nvim/R.nvim',
   lazy = false,
-  dependencies = {
-    {
-      'R-nvim/cmp-r',
-      fun_data_1 = {
-        'select',
-        'rename',
-        'mutate',
-        'filter',
-        'arrange',
-      },
-    },
-  },
   opts = {
     -- start whenever opening a R or Quarto file
     auto_start = 'always',

@@ -4,8 +4,16 @@ return {
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
+      {
+        'mason-org/mason.nvim',
+        opts = {
+          ui = {
+            border = 'rounded',
+            height = 0.7,
+          },
+        },
+      },
+      'mason-org/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Configure LuaLS for editing Neovim config
@@ -15,37 +23,28 @@ return {
           ft = 'lua', -- only load on lua files
           opts = {
             library = {
-              -- See the configuration section for more details
               -- Load luvit types when the `vim.uv` word is found
-              { path = 'luvit-meta/library', words = { 'vim%.uv' } },
+              { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
             },
           },
-        },
-        { 'Bilal2453/luvit-meta', lazy = true }, -- optional `vim.uv` typings
-        { -- optional completion source for require statements and module annotations
-          'hrsh7th/nvim-cmp',
-          opts = function(_, opts)
-            opts.sources = opts.sources or {}
-            table.insert(opts.sources, {
-              name = 'lazydev',
-              group_index = 0, -- set group index to 0 to skip loading LuaLS completions
-            })
-          end,
         },
       },
 
       -- Useful status updates for LSP.
       { 'j-hui/fidget.nvim', opts = {} },
+      -- Allows extra capabilities provided by nvim-cmp
+      {
+        'hrsh7th/nvim-cmp',
+        opts = function(_, opts)
+          opts.sources = opts.sources or {}
+          table.insert(opts.sources, {
+            name = 'lazydev',
+            group_index = 0,
+          })
+        end,
+      },
     },
     config = function()
-      -- Mason
-      require('mason').setup {
-        ui = {
-          border = 'rounded',
-          height = 0.7,
-        },
-      }
-
       -- borders for LSPInfo
       require('lspconfig.ui.windows').default_options.border = 'rounded'
 
@@ -54,8 +53,9 @@ return {
         callback = function(event)
           -- In this case, we create a function that lets us more easily define mappings specific
           -- for LSP related items. It sets the mode, buffer and description for us each time.
-          local map = function(keys, func, desc)
-            vim.keymap.set('n', keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
+          local map = function(keys, func, desc, mode)
+            mode = mode or 'n'
+            vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
           -- Jump to the definition of the word under your cursor.
@@ -113,9 +113,17 @@ return {
             })
           end
 
+          vim.api.nvim_create_autocmd('LspDetach', {
+            group = vim.api.nvim_create_augroup('kickstart-lsp-detach', { clear = true }),
+            callback = function(event2)
+              vim.lsp.buf.clear_references()
+              vim.api.nvim_clear_autocmds { group = 'kickstart-lsp-highlight', buffer = event2.buf }
+            end,
+          })
+
           -- Toggle inlay hints
           ---@diagnostic disable-next-line: missing-parameter, param-type-mismatch
-          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint) then
+          if client and client.supports_method(vim.lsp.protocol.Methods.textDocument_inlayHint, event.buf) then
             map('<leader>th', function()
               vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = event.buf })
             end, '[T]oggle Inlay [H]ints')
@@ -126,6 +134,35 @@ return {
       -- Ensure lintr for R
       vim.g.LanguageClient_serverCommands = {
         r = { 'R', '--slave', '-e', 'languageserver::run()' },
+      }
+
+      -- Diagnostic Config
+      -- See :help vim.diagnostic.Opts
+      vim.diagnostic.config {
+        severity_sort = true,
+        float = { border = 'rounded', source = 'if_many' },
+        underline = { severity = vim.diagnostic.severity.ERROR },
+        signs = vim.g.have_nerd_font and {
+          text = {
+            [vim.diagnostic.severity.ERROR] = '󰅚 ',
+            [vim.diagnostic.severity.WARN] = '󰀪 ',
+            [vim.diagnostic.severity.INFO] = '󰋽 ',
+            [vim.diagnostic.severity.HINT] = '󰌶 ',
+          },
+        } or {},
+        virtual_text = {
+          source = 'if_many',
+          spacing = 2,
+          format = function(diagnostic)
+            local diagnostic_message = {
+              [vim.diagnostic.severity.ERROR] = diagnostic.message,
+              [vim.diagnostic.severity.WARN] = diagnostic.message,
+              [vim.diagnostic.severity.INFO] = diagnostic.message,
+              [vim.diagnostic.severity.HINT] = diagnostic.message,
+            }
+            return diagnostic_message[diagnostic.severity]
+          end,
+        },
       }
 
       -- LSP servers and clients are able to communicate to each other what features they support.
@@ -141,16 +178,9 @@ return {
         lua_ls = {
           settings = {
             Lua = {
-              runtime = { version = 'LuaJIT' },
-              workspace = {
-                checkThirdParty = false,
-                library = {
-                  '${3rd}/luv/library',
-                  unpack(vim.api.nvim_get_runtime_file('', true)),
-                },
-              },
               completion = {
                 callSnippet = 'Replace',
+                diagnostics = { disable = { 'missing-fields' } },
               },
             },
           },
@@ -205,6 +235,8 @@ return {
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
       require('mason-lspconfig').setup {
+        ensure_installed = {},
+        automatic_installation = false,
         handlers = {
           function(server_name)
             local server = servers[server_name] or {}
