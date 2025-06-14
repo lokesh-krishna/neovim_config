@@ -194,7 +194,7 @@ return {
         -- Json language server
         jsonls = {},
         -- Grammar language server
-        ltex = {
+        ltex_plus = {
           settings = {
             ltex = {
               language = 'en-GB', -- Check against British English
