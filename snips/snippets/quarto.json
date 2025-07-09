@@ -626,8 +626,18 @@
     "body": [
       "```{r}",
       "#| label: $1",
-      "#| echo: false",
-      "#| warning: false",
+      "```"
+    ]
+  },
+  "table": {
+    "prefix": [
+      "tbl"
+    ],
+    "description": "insert r code chunk with label and table caption",
+    "body": [
+      "```{r}",
+      "#| label: tbl-$1",
+      "#| tbl-cap: $2",
       "```"
     ]
   },
@@ -641,7 +651,8 @@
       "library(tidyverse)",
       "library(here)",
       "library(hrbrthemes)",
-      "library(janitor)"
+      "library(janitor)",
+      "library(readxl)"
     ]
   },
   "function": {
