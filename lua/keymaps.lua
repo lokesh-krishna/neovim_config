@@ -44,14 +44,14 @@ set('n', '<leader>pl', ':Lazy<cr>', { desc = '[P]lugin: [L]azy' })
 
 -- Grug-Far
 set('n', '<leader>fg', ':GrugFar<cr>', { desc = '[F]ind [G]lobally' })
-set('n', '<leader>fw', ':lua require("grug-far").grug_far({prefills = { search = vim.fn.expand("<cword>")}})<cr>', { desc = '[F]ind current [W]ord' })
+set('n', '<leader>fw', ':lua require("grug-far").open({prefills = { search = vim.fn.expand("<cword>")}})<cr>', { desc = '[F]ind current [W]ord' })
 set(
   'n',
   '<leader>fv',
   ':<C-u>lua require("grug-far").with_visual_selection( { prefills = { paths = vim.fn.expand("%") } } )',
   { desc = '[F]ind [V]isual selection' }
 )
-set('n', '<leader>fb', ':lua require("grug-far").grug_far({prefills = { paths = vim.fn.expand("%")}})<cr>', { desc = '[F]ind in [B]uffer' })
+set('n', '<leader>fb', ':lua require("grug-far").open({prefills = { paths = vim.fn.expand("%")}})<cr>', { desc = '[F]ind in [B]uffer' })
 
 -- nvim-notify
 set('n', '<leader>nd', ':lua require("notify").dismiss()<cr>', { desc = '[N]otificaitons [D]ismiss' })
