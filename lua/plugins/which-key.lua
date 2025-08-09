@@ -7,6 +7,7 @@ return {
       preset = 'modern',
       spec = {
         { '<leader>c', group = '[C]ode', mode = { 'n', 'x' } },
+        { '<leader>b', group = '[B]ullet', mode = { 'n', 'x' } },
         { '<leader>d', group = '[D]ebug' },
         { '<leader>e', group = '[E]rrors' },
         { '<leader>f', group = '[F]ind' },
@@ -19,6 +20,9 @@ return {
         { '<leader>w', group = '[W]orkspace' },
         { '<leader>t', group = '[T]oggle' },
         { '<leader>h', group = 'Git [H]unk', mode = { 'n', 'v' } },
+        -- Keybinding descriptions for autolist
+        { '<leader>bn', desc = 'Next bullet style' },
+        { '<leader>bp', desc = 'Previous bullet style' },
       },
     },
   },
