@@ -15,7 +15,7 @@ return {
       -- $$ for quarto
       npairs.add_rule(Rule('$', '$', 'quarto'):with_move(cond.done()))
       -- <> for everything but R
-      npairs.add_rule(Rule('<', '>', '-r'):with_move(cond.done()))
+      npairs.add_rule(Rule('<', '>', { '-r', '-quarto', '-python' }):with_move(cond.done()))
     end,
   },
   -- Next, autotags
